@@ -10,11 +10,12 @@ packages = [{include = "code_names_bot_clue_generator"}]
 python = "^3.10"
 black = "^22.8.0"
 isort = "^5.10.1"
+networkx = "^2.8.8"
 
 [tool.poetry.scripts]
 format                                  = "tasks:format"
 
-set-threshold-clues                     = "code_names_bot_clue_generator.threshold_clues.set_threshold_clues:main"
+paths-explorer                          = "tools.paths_explorer:main"
 
 [build-system]
 requires = ["poetry-core"]
