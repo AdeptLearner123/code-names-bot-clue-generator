@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "code-names-bot-clue-generator"
+version = "0.1.0"
+description = ""
+authors = ["Nalu Zou"]
+readme = "README.md"
+packages = [{include = "code_names_bot_clue_generator"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+black = "^22.8.0"
+isort = "^5.10.1"
+
+[tool.poetry.scripts]
+format                                  = "tasks:format"
+
+set-threshold-clues                     = "code_names_bot_clue_generator.threshold_clues.set_threshold_clues:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
