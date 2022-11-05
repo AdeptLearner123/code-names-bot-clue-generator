@@ -16,6 +16,7 @@ networkx = "^2.8.8"
 format                                  = "tasks:format"
 
 paths-explorer                          = "tools.paths_explorer:main"
+view-text-senses                        = "tools.view_text_senses:main"
 
 [build-system]
 requires = ["poetry-core"]
