@@ -17,7 +17,6 @@ class VectorGuesser(ClueGuesser):
 
     def guess(self, words, clue, num):
         word_scores = [ (self._similarity(word, clue), word) for word in words ]
-        print(word_scores)
         word_scores.sort(reverse=True)
 
         filtered = word_scores[:num]
@@ -27,3 +26,8 @@ class VectorGuesser(ClueGuesser):
 class Word2VecGuesser(VectorGuesser):
     def __init__(self):
         super().__init__("word2vec-google-news-300")
+
+
+class GloveNetGuesser(VectorGuesser):
+    def __init__(self):
+        super().__init__("glove-twitter-25")
