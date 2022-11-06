@@ -28,7 +28,7 @@ def main():
         if len(incorrect_guesses) > 0:
             print("Incorrect scenario:", scenario_id)
             print("\tWords:", words)
-            print("\tClue:", scenario["clue"], scenario["num"])
+            print("\tClue:", scenario["clue"], clue_num)
             print("\tExpected:", expected)
             print("\tGuessed:", predicted)
         else:
