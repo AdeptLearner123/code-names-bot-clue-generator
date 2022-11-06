@@ -7,7 +7,10 @@ def main():
     with open(SCENARIOS, "r") as file:
         scenarios = yaml.safe_load(file)
     
+    print("Status:", "Loading guesser")
     guesser = Word2VecGuesser()
+
+    print("Status:", "Evaluating")
     correct_scenarios = 0
     total_correct_guesses = 0
     total_clue_num = 0
@@ -18,7 +21,7 @@ def main():
         expected = scenario["pos"]
 
         correct_guesses = set(predicted).intersection(expected)
-        total_correct_guesses += correct_guesses
+        total_correct_guesses += len(correct_guesses)
         total_clue_num += clue_num
         incorrect_guesses = set(predicted).difference(expected)
 
