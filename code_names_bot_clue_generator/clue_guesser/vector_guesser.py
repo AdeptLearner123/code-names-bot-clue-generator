@@ -1,6 +1,6 @@
 from .clue_guesser import ClueGuesser
 
-import gensim
+import gensim.downloader
 
 class VectorGuesser(ClueGuesser):
     def __init__(self, model):
