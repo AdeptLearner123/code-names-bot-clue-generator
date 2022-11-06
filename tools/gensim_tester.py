@@ -9,8 +9,8 @@ def parse_args():
 
 
 def main():
-    model = parse_args()
-    gensim.downloader.load(model)
+    model_name = parse_args()
+    model = gensim.downloader.load(model_name)
 
     while(True):
         word1 = input("Word1: ")
