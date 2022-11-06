@@ -1,4 +1,4 @@
-from code_names_bot_clue_generator.clue_guesser.vector_guesser import Word2VecGuesser
+from code_names_bot_clue_generator.clue_guesser.vector_guesser import Word2VecGuesser, GloveNetGuesser
 from config import SCENARIOS
 
 import yaml
@@ -8,7 +8,7 @@ def main():
         scenarios = yaml.safe_load(file)
     
     print("Status:", "Loading guesser")
-    guesser = Word2VecGuesser()
+    guesser = GloveNetGuesser()
 
     print("Status:", "Evaluating")
     correct_scenarios = 0
