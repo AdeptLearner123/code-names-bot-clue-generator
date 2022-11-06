@@ -1,5 +1,6 @@
 CARDWORDS = "static/cardwords.txt"
 DICTIONARY = "static/dictionary.json"
+SCENARIOS = "static/scenarios.yaml"
 
 SENSE_EDGES = "static/sense_edges.csv"
 LEMMA_SENSE_EDGES = "static/lemma_sense_edges.csv"

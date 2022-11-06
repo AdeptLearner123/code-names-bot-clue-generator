@@ -20,7 +20,7 @@ def item_key_to_string(item_key, dictionary, text_senses):
     elif item_type == "DOMAIN":
         return "Domain"
 
-def get_path_str(path, dictionary, text_senses):
+def get_path_str_old(path, dictionary, text_senses):
     path_items = []
     for edge_tuple in path:
         (node1, node2, edge_key) = edge_tuple
@@ -33,3 +33,11 @@ def get_path_str(path, dictionary, text_senses):
     
     path_items = [ item_key_to_string(item_key, dictionary, text_senses) for item_key in path_items ]
     return " -- ".join(path_items)
+
+
+def get_path_str(source_path, target_path, dictionary, text_senses):
+    source_path = [ item_key_to_string(node, dictionary, text_senses) for node in source_path ]
+    target_path = [ item_key_to_string(node, dictionary, text_senses) for node in target_path ]
+    target_path = target_path[:-1]
+    target_path.reverse()
+    return " --> ".join(source_path) + " <-- " + " <-- ".join(target_path)

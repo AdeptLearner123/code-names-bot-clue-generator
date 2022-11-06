@@ -15,6 +15,8 @@ networkx = "^2.8.8"
 [tool.poetry.scripts]
 format                                  = "tasks:format"
 
+evaluate_scenarios                      = "code_names_bot_clue_generator.evaluation.evaluate_scenarios:main"
+
 paths-explorer                          = "tools.paths_explorer:main"
 view-text-senses                        = "tools.view_text_senses:main"
 
