@@ -21,6 +21,7 @@ evaluate_scenarios                      = "code_names_bot_clue_generator.evaluat
 
 paths-explorer                          = "tools.paths_explorer:main"
 view-text-senses                        = "tools.view_text_senses:main"
+gensim-tester                           = "tools.gensim_tester:main"
 
 [build-system]
 requires = ["poetry-core"]
