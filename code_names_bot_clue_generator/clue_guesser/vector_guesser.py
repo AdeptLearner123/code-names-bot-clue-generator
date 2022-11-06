@@ -7,9 +7,9 @@ class VectorGuesser(ClueGuesser):
         self._vectors = gensim.downloader.load(model)
 
     def guess(self, words, clue, num):
-        word_scores = [ (self._vectors.similarity(word, clue), word) for word in words ]
+        word_scores = [ (self._vectors.similarity(word.lower(), clue.lower()), word) for word in words ]
         print(word_scores)
-        word_scores.sort()
+        word_scores.sort(reverse=True)
 
         filtered = word_scores[:num]
         return [ word for _, word in filtered ]
