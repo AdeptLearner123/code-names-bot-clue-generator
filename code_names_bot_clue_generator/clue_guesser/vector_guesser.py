@@ -10,9 +10,9 @@ class VectorGuesser(ClueGuesser):
         word1 = word1.lower()
         word2 = word2.lower()
 
-        if word1 not in self._vectors.vocab or word2 not in self._vectors.vocab:
+        if word1 not in self._vectors.key_to_index or word2 not in self._vectors.key_to_index:
             return 0
-        return self._vectors.similarity(word.lower(), clue.lower())
+        return self._vectors.similarity(word1, word2)
 
 
     def guess(self, words, clue, num):
