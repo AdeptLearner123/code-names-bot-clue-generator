@@ -30,4 +30,4 @@ class Word2VecGuesser(VectorGuesser):
 
 class GloveNetGuesser(VectorGuesser):
     def __init__(self):
-        super().__init__("glove-twitter-25")
+        super().__init__("glove-wiki-gigaword-300")
