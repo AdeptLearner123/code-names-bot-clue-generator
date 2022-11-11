@@ -13,13 +13,11 @@ def create_text_digraph():
         lines = file.read().splitlines()
         for line in lines:
             (lemma, sense, relation_type, data) = line.split("\t")
-            if relation_type == "COMPOUND":
-                data= int(data)
-            else:
-                data = bool(data)
+            data = f"{data}:{lemma}:{sense}"
 
             edge_key = get_key(relation_type, data)
-            graph.add_edge(get_key("LEMMA", lemma), get_key("SENSE", sense), key=edge_key)
+            graph.add_edge(get_key("LEMMA", lemma), edge_key)
+            graph.add_edge(edge_key, get_key("SENSE", sense))
     
     with open(SENSE_EDGES) as file:
         lines = file.read().splitlines()
@@ -39,31 +37,6 @@ def create_text_digraph():
 
             graph.add_edge(from_sense_key, relation_key)
             graph.add_edge(relation_key, to_sense_key)
-    
-    return graph
-
-
-def create_text_multigraph():
-    graph = nx.MultiGraph()
-
-    with open(LEMMA_SENSE_EDGES, "r") as file:
-        lines = file.read().splitlines()
-        for line in lines:
-            (lemma, sense, edge_type, data) = line.split("\t")
-            if edge_type == "COMPOUND":
-                data= int(data)
-            else:
-                data = bool(data)
-
-            edge_key = get_key(edge_type, data)
-            graph.add_edge(get_key("LEMMA", lemma), get_key("SENSE", sense), key=edge_key)
-    
-    with open(SENSE_EDGES) as file:
-        lines = file.read().splitlines()
-        for line in lines:
-            (from_sense, to_sense, edge_type, data) = line.split("\t")
-            edge_key = get_key(edge_type, data)
-            graph.add_edge(get_key("SENSE", from_sense), get_key("SENSE", to_sense), key=edge_key)
     
     return graph
 
