@@ -13,6 +13,7 @@ isort = "^5.10.1"
 networkx = "^2.8.8"
 gensim = "^4.2.0"
 PyYAML = "^6.0"
+tqdm = "^4.64.1"
 
 [tool.poetry.scripts]
 format                                  = "tasks:format"
@@ -22,6 +23,8 @@ evaluate-scenarios                      = "code_names_bot_clue_generator.evaluat
 paths-explorer                          = "tools.paths_explorer:main"
 view-text-senses                        = "tools.view_text_senses:main"
 gensim-tester                           = "tools.gensim_tester:main"
+merge-compounds                         = "tools.merge_compounds:main"
+print-profile                           = "tools.print_profile:main"
 
 [build-system]
 requires = ["poetry-core"]
