@@ -34,11 +34,3 @@ def get_path_str(path, graph, dictionary, text_senses):
             else:
                 path_str += " <-- "
     return path_str
-
-
-def get_path_str_old(source_path, target_path, dictionary, text_senses):
-    source_path = [ item_key_to_string(node, dictionary, text_senses) for node in source_path ]
-    target_path = [ item_key_to_string(node, dictionary, text_senses) for node in target_path ]
-    target_path = target_path[:-1]
-    target_path.reverse()
-    return " --> ".join(source_path) + " <-- " + " <-- ".join(target_path)
