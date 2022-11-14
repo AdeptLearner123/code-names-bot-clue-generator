@@ -1,9 +1,7 @@
 import networkx as nx
 
 from config import SENSE_EDGES, LEMMA_SENSE_EDGES
-
-def get_key(item_type, data):
-    return f"{item_type}|{data}"
+from .node_utils import get_key
 
 
 def create_text_digraph():

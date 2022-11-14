@@ -1,4 +1,4 @@
-from .text_graph import get_key
+from .node_utils import get_key, parse_node
 
 def get_all_shortest_paths_dict(graph, source, cutoff, exclude_types = [], include_types = None):
     queue = [source]
@@ -15,7 +15,7 @@ def get_all_shortest_paths_dict(graph, source, cutoff, exclude_types = [], inclu
             continue
 
         for _, out_node in graph.out_edges(current):
-            out_node_type = out_node.split("|")[0]
+            out_node_type = parse_node(out_node)[0]
             if out_node_type in exclude_types or include_types is not None and out_node_type not in include_types:
                 continue
 
@@ -42,7 +42,7 @@ def get_paths(graph, source_lemma, target_lemma, expansions):
     paths = []
 
     for node_key in source_paths_dict.keys():
-        node_type, _ = node_key.split("|")
+        node_type = parse_node(node_key)[0]
 
         if node_type != "SENSE":
             continue

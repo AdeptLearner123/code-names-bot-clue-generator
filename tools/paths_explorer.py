@@ -4,6 +4,7 @@ import time
 from code_names_bot_clue_generator.text_graph.text_graph import create_text_digraph
 from code_names_bot_clue_generator.text_graph.dual_tree_expansion import get_paths
 from code_names_bot_clue_generator.text_graph.path_utils import get_path_str
+from code_names_bot_clue_generator.text_graph.path_to_text import path_to_text, print_path_text
 from config import DICTIONARY, TEXT_SENSES
 
 def get_expansions():
@@ -23,6 +24,7 @@ def print_paths(text_graph, dictionary, text_senses):
     
     for path in text_paths:
         print(get_path_str(path, text_graph, dictionary, text_senses))
+        print_path_text(path_to_text(path, text_graph, dictionary, text_senses))
 
     print("Time: ", time.time() - start)
     print("Total paths", len(text_paths))
@@ -38,7 +40,6 @@ def main():
 
     while(True):
         print_paths(text_graph, dictionary, text_senses)
-        break
 
 
 if __name__ == "__main__":

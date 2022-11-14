@@ -14,6 +14,7 @@ networkx = "^2.8.8"
 gensim = "^4.2.0"
 PyYAML = "^6.0"
 tqdm = "^4.64.1"
+colorama = "^0.4.6"
 
 [tool.poetry.scripts]
 format                                  = "tasks:format"

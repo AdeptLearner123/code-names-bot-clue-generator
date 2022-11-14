@@ -1,5 +1,7 @@
+from .node_utils import parse_node
+
 def item_key_to_string(item_key, dictionary, text_senses):
-    item_type, item_data = item_key.split("|")
+    item_type, item_data = parse_node(item_key)
 
     if item_type == "LEMMA":
         return item_data
